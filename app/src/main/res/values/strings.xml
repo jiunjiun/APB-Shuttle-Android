@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">APB Shuttle</string>
+    <string name="title_index">首頁</string>
+    <string name="title_apb">警備車表</string>
+    <string name="title_orange">亞通車表</string>
+    <string name="paginate_previous">上一班</string>
+    <string name="paginate_next">下一班</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

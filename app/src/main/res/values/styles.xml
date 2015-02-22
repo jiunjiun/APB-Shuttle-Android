@@ -1,0 +1,46 @@
+<resources>
+    <!--parent="Theme.AppCompat.Light.DarkActionBar"-->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Base Index theme -->
+    <style name="index_theme">
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+        <style name="index_logo" parent="index_theme">
+            <item name="android:paddingBottom">10sp</item>
+        </style>
+
+        <style name="index_depart" parent="index_theme">
+            <item name="android:textSize">120sp</item>
+        </style>
+
+        <style name="index_details" parent="index_theme">
+            <item name="android:textSize">30sp</item>
+            <item name="android:paddingBottom">30sp</item>
+        </style>
+
+        <style name="index_paginate" parent="index_theme">
+            <item name="android:textSize">30sp</item>
+            <item name="android:paddingLeft">20sp</item>
+            <item name="android:paddingRight">20sp</item>
+        </style>
+
+    <!-- Base APB and Orange theme. -->
+    <style name="bus_table">
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+        <style name="bus_table_title" parent="bus_table">
+            <item name="android:textSize">50sp</item>
+
+            <item name="android:paddingTop">40sp</item>
+            <item name="android:paddingBottom">20sp</item>
+        </style>
+
+</resources>
