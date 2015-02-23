@@ -1,10 +1,4 @@
 <resources>
-    <!--parent="Theme.AppCompat.Light.DarkActionBar"-->
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
-
     <!-- Base Index theme -->
     <style name="index_theme">
         <item name="android:textColor">#fff</item>
