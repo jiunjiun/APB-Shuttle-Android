@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<tw.jiunjiun.apb.shuttle.DetectTouchGesture.DTGLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
     android:layout_gravity="center_horizontal"
+    android:id="@+id/frag_index"
     android:background="#18bc9c" >
 
     <LinearLayout
@@ -25,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="21:40"
             android:id="@+id/depart"
             style="@style/index_depart" />
 
@@ -33,7 +34,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="保安隊 中型警備車"
             android:id="@+id/details"
             style="@style/index_details" />
 
@@ -63,4 +63,4 @@
 
         </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</tw.jiunjiun.apb.shuttle.DetectTouchGesture.DTGLinearLayout>
