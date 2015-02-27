@@ -1,9 +1,14 @@
 package tw.jiunjiun.apb.shuttle;
 
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +17,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +54,7 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-//        registerReceiver(mBroadcast, new IntentFilter(ReceiverProgress));
+        registerReceiver(mBroadcast, new IntentFilter(ReceiverProgress));
     }
 
     @Override
@@ -61,16 +65,14 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onStart() {
         super.onStart();
+        if(isNetworkConnected()) showAlertDialog();
         init();
-
-//        setSupportProgressBarIndeterminateVisibility(true);
     }
 
     @Override
-    public void onStop() {
-        // TODO Auto-generated method stub
-//        this.unregisterReceiver(mBroadcast);
-        super.onStop();
+    protected void onDestroy() {
+        this.unregisterReceiver(mBroadcast);
+        super.onDestroy();
     }
 
     @Override
@@ -87,14 +89,12 @@ public class MainActivity extends ActionBarActivity
                     .replace(R.id.container, fragment).commit();
             break;
         case 1:
-//            fragment = new ApbFragment();
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://apb.jiunjiun.me/apb"));
             startActivity(intent);
             break;
         case 2:
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://apb.jiunjiun.me/orange"));
             startActivity(intent);
-//            fragment = new OrangeFragment();
             break;
         }
 
@@ -157,25 +157,58 @@ public class MainActivity extends ActionBarActivity
         getSupportActionBar().setCustomView(progressBar, new ActionBar.LayoutParams(GravityCompat.END));
     }
 
-    // Should be called manually when an async task has started
-//    public static void showProgressBar() {
-//        setSupportProgressBarIndeterminateVisibility(true);
-//    }
-//
-//    // Should be called when an async task has finished
-//    public static void hideProgressBar() {
-//        setSupportProgressBarIndeterminateVisibility(true);
-//    }
+    private boolean isNetworkConnected() {
+        /*
+         * http://blog.kenyang.net/2010/06/android.html
+         */
+        ConnectivityManager conManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);//先取得此service
+        NetworkInfo networInfo = conManager.getActiveNetworkInfo();
+        return networInfo == null || !networInfo.isAvailable();
+    }
 
+    private void showAlertDialog() {
+        /*
+         * http://www.cnblogs.com/LeeYZ/archive/2012/08/20/2648308.html
+         */
 
-//    private BroadcastReceiver mBroadcast =  new BroadcastReceiver() {
-//        @Override
-//        public void onReceive(Context mContext, Intent mIntent) {
-//            // TODO Auto-generated method stub
-//            if(ReceiverProgress.equals(mIntent.getAction())){
-//                boolean visible = mIntent.getBooleanExtra("visible", false);
-//                setSupportProgressBarIndeterminateVisibility(visible);
-//            }
-//        }
-//    };
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false)
+               .setMessage(R.string.alert_message)
+               .setPositiveButton(R.string.alert_setting,
+                       new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               // TODO Auto-generated method stub
+                               Intent intent = null;
+                               //判断手机系统的版本  即API大于10 就是3.0或以上版本
+                               if (android.os.Build.VERSION.SDK_INT > 10) {
+                                   intent = new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS);
+                               } else {
+                                   intent = new Intent();
+                                   ComponentName component = new ComponentName("com.android.settings", "com.android.settings.WirelessSettings");
+                                   intent.setComponent(component);
+                                   intent.setAction("android.intent.action.VIEW");
+                               }
+                               startActivity(intent);
+                           }
+                       }).setNegativeButton(R.string.alert_cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+//                dialog.dismiss();
+                finish();
+            }
+        }).show();
+    }
+
+    private BroadcastReceiver mBroadcast =  new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context mContext, Intent mIntent) {
+            // TODO Auto-generated method stub
+            if(ReceiverProgress.equals(mIntent.getAction())){
+                boolean visible = mIntent.getBooleanExtra("visible", false);
+                setSupportProgressBarIndeterminateVisibility(visible);
+            }
+        }
+    };
 }
