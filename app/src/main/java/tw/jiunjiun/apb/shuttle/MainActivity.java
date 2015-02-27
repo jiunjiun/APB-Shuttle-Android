@@ -96,6 +96,11 @@ public class MainActivity extends ActionBarActivity
             intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://apb.jiunjiun.me/orange"));
             startActivity(intent);
             break;
+        case 3:
+            fragment = new AboutFragment();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment).commit();
+            break;
         }
 
     }
@@ -103,7 +108,6 @@ public class MainActivity extends ActionBarActivity
     public void onSectionAttached(int number) {
         switch (number) {
             case 0:
-//                mTitle = getString(R.string.title_index);
                 mTitle = getString(R.string.app_name);
                 break;
             case 1:
@@ -111,6 +115,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 2:
                 mTitle = getString(R.string.title_orange);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_about);
                 break;
         }
         restoreActionBar();

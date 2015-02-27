@@ -41,10 +41,10 @@ public class ParserBus {
             this.full_note = "局本部 - " + this.note;
             break;
         case security:
-            this.full_note = "保安隊 - " + this.note;
+            this.full_note = "安檢隊 - " + this.note;
             break;
         case safety:
-            this.full_note = "安檢隊 - " + this.note;
+            this.full_note = "保安隊 - " + this.note;
             break;
         case orange:
             this.full_note = "亞通客運 - " + this.note;

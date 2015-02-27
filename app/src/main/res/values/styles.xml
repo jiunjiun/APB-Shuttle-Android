@@ -37,6 +37,20 @@
             <item name="android:paddingBottom">20sp</item>
         </style>
 
+    <!-- Base About theme. -->
+    <style name="about_header" parent="bus_table">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">130sp</item>
+        <item name="android:paddingTop">15sp</item>
+        <item name="android:paddingBottom">25sp</item>
+        <item name="android:background">#00897B</item>
+    </style>
+
+    <style name="about_icon" parent="bus_table">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">70sp</item>
+        <item name="android:src">@drawable/icon</item>
+    </style>
 
     <style name="drawer_list_text">
         <item name="android:textSize">26sp</item>
