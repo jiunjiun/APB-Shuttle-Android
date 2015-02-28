@@ -1,25 +1,20 @@
 package tw.jiunjiun.apb.shuttle;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import tw.jiunjiun.apb.shuttle.DetectTouchGesture.DTGLinearLayout;
 import tw.jiunjiun.apb.shuttle.curl.APB_API;
@@ -82,6 +77,7 @@ public class IndexFragment extends Fragment {
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GAnalyticsOnClick("Reset");
                 paginate_reset();
             }
         });
@@ -89,6 +85,7 @@ public class IndexFragment extends Fragment {
         paginate_previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GAnalyticsOnClick("Previous, " + NextNum);
                 paginate_previous();
             }
         });
@@ -96,6 +93,7 @@ public class IndexFragment extends Fragment {
         paginate_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GAnalyticsOnClick("Next, " + NextNum);
                 paginate_next();
             }
         });
@@ -149,6 +147,18 @@ public class IndexFragment extends Fragment {
         intent.setAction(MainActivity.ReceiverProgress);
         intent.putExtra("visible", visible);
         getActivity().sendBroadcast(intent);
+    }
+
+    private void GAnalyticsOnClick(String Label) {
+        // Get tracker.
+        Tracker t = ((GAnalytics) getActivity().getApplication()).getTracker(
+                GAnalytics.TrackerName.APP_TRACKER);
+        // Build and send an Event.
+        t.send(new HitBuilders.EventBuilder()
+                .setCategory("IndexFragmentClick")
+                .setAction("click")
+                .setLabel(Label)
+                .build());
     }
 
     Handler mHandler = new Handler(){

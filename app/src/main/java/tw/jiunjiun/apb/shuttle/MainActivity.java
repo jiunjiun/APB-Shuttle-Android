@@ -22,6 +22,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -34,6 +37,7 @@ public class MainActivity extends ActionBarActivity
     private NavigationDrawerFragment mNavigationDrawerFragment;
     public static final String ReceiverProgress = "tw.jiunjiun.apb.Progress";
     private static final String TAG = "MainActivity";
+    private static final String WebUrl = "http://apb-shuttle.info/";
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
@@ -84,19 +88,24 @@ public class MainActivity extends ActionBarActivity
         switch(position) {
         default:
         case 0:
+            GAnalytics("IndexFragment");
             fragment = new IndexFragment();
             fragmentManager.beginTransaction()
                     .replace(R.id.container, fragment).commit();
+
             break;
         case 1:
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://apb.jiunjiun.me/apb"));
+            GAnalytics("APBFragment");
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(WebUrl + "apb"));
             startActivity(intent);
             break;
         case 2:
-            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://apb.jiunjiun.me/orange"));
+            GAnalytics("OrangeFragment");
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(WebUrl + "orange"));
             startActivity(intent);
             break;
         case 3:
+            GAnalytics("AboutFragment");
             fragment = new AboutFragment();
             fragmentManager.beginTransaction()
                     .replace(R.id.container, fragment).commit();
@@ -162,6 +171,12 @@ public class MainActivity extends ActionBarActivity
         progressBar.setIndeterminate(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(progressBar, new ActionBar.LayoutParams(GravityCompat.END));
+    }
+
+    private void GAnalytics(String path) {
+        Tracker t = ((GAnalytics) getApplication()).getTracker(GAnalytics.TrackerName.APP_TRACKER);
+        t.setScreenName(path);
+        t.send(new HitBuilders.AppViewBuilder().build());
     }
 
     private boolean isNetworkConnected() {
