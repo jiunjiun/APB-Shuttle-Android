@@ -129,7 +129,7 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_about);
                 break;
         }
-        restoreActionBar();
+//        restoreActionBar();
     }
 
     public void restoreActionBar() {

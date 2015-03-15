@@ -10,7 +10,7 @@
         </style>
 
         <style name="index_depart" parent="index_theme">
-            <item name="android:textSize">120sp</item>
+            <item name="android:textSize">100sp</item>
         </style>
 
         <style name="index_details" parent="index_theme">

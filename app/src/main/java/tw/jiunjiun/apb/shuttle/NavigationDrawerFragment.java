@@ -101,7 +101,7 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
-        String []titles = new String[]{ getString(R.string.title_index), getString(R.string.title_apb), getString(R.string.title_orange)};//, getString(R.string.title_about) };
+        String []titles = new String[]{ getString(R.string.title_apb), getString(R.string.title_orange)};//, getString(R.string.title_about) };
         mNavDrawerAdapter = new NavDrawerAdapter(getActivity(), titles);
         mDrawerListView.setAdapter(mNavDrawerAdapter);
 
