@@ -1,6 +1,6 @@
 # APB-Shuttle-Android
 #### 航警局車表
-Google Play：[APB Shuttle](https://play.google.com/store/apps/details?id=tw.jiunjiun.apb.apb_shuttle)
+Google Play：[APB Shuttle](https://play.google.com/store/apps/details?id=tw.jiunjiun.apb.shuttle)
 
 
 ## Copyright / License
