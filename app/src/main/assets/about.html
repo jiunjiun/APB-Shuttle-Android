@@ -1,143 +1,85 @@
 <!DOCTYPE html>
-<html class="gt-ie8 gt-ie9 not-ieß" lang="zh-TW" id="app"><!--<![endif]--><head>
+<html>
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
-    <meta property="og:image" content="http://apb-shuttle.info/assets/preview-d9df43732a62fe77e2fe6673ce11eba9.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-c0ccbe9ab68dfad089589ec9d44edabc.ico">
-
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" name="viewport">
+    <meta content="APB Shuttle | 本網站主要提供航警局與航廈來往車班資訊，並包含亞通客運，以方便同仁搭車。" name="description">
+    <meta content="" name="author">
+    <meta content="APB Shuttle" property="og:title">
+    <meta content="https://apb-shuttle.info" property="og:url">
+    <meta content="website" property="og:type">
+    <meta>
+    <meta content="noindex, nofollow" name="robots">
+    <link href="https://pic.pimg.tw/raindog/1430064152-3008564622.jpg" rel="image_src">
     <title>APB Shuttle</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <link rel="stylesheet" media="all" href="http://getbootstrap.com/assets/css/docs.min.css">
-    <link rel="stylesheet" media="all" href="http://apb-shuttle.info/assets/application-ada5cd95af4702a8f7489840d21314a1.css" data-turbolinks-track="true">
+    <style>
+      a {color: #43A047;}
+      a:hover {color: #2E7D32;}
+      a.dotted {border-bottom: dotted 1px #43A047;}
+      a.dotted:hover {text-decoration: none; border-bottom: solid 1px #2E7D32;}
 
-    <!-- <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'> -->
-
-    <meta name="csrf-param" content="authenticity_token">
-    <meta name="csrf-token" content="choxscZ82Oky7F00fTX/rFz9EBtlRlAV27EKc3vFoO3fRYARVjPd/G+hP8DIbNOAVTIWbCM2RhOkI91d3wELJA==">
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <script src="assets/javascripts/ie.min.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script><script type="text/javascript">
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount','UA-59177055-1']);
-_gaq.push(['_setDomainName','auto']);
-_gaq.push(['_trackPageview']);
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script><style type="text/css"></style>
-
-    <meta name="d41d8cd98f00b204e9800998ecf8427e_lib_detect" id="d41d8cd98f00b204e9800998ecf8427e_lib_detect" content="jQuery:1.11.1"><script type="text/javascript" src="chrome-extension://cgaocdmhkmfnkdkbnckgmpopcbpaaejo/../library/libraries.js"></script><script type="text/javascript" src="chrome-extension://cgaocdmhkmfnkdkbnckgmpopcbpaaejo/content_scripts/lib_detect.js"></script></head><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
-
-<body cz-shortcut-listen="true">
-<!-- Menu -->
-<div class="sb-slidebar sb-right sb-style-overlay">
-    <header class="text-center">
-        <div class="logo">
-            <a class="no-decoration" data-no-turbolink="true" href="/"><i class="fa fa-bus"></i>
-            </a></div>
-    </header>
-    <nav class="text-center">
-        <ul class="list-unstyled">
-            <li>
-                <a class="no-decoration" data-no-turbolink="true" href="/apb">警備車表</a>
-            </li>
-            <li>
-                <a class="no-decoration" data-no-turbolink="true" href="/orange">亞通車表</a>
-            </li>
-            <li>
-                <a class="no-decoration" data-no-turbolink="true" href="/about">關於網站</a>
-            </li>
-            <li>
-                <h4>
-                    <a class="no-decoration" data-no-turbolink="true" href="/">回首頁</a>
-                </h4>
-            </li>
-        </ul>
-    </nav>
-</div>
-
-
-<div id="wrapper">
-    <div id="sb-site">
-        <div id="container" class="container-fluid">
-            <div class="row text-center" id="about">
-                <div class="col-md-12">
-                    <h1>關於網站</h1>
-                    <p>
-                        本網站主要提供航警局與航廈來往車班資訊，並包含亞通客運，以方便同仁搭車。
-                    </p>
-                    <p>
-                        資料來源：安檢隊-駕駛班所提供、亞通客運-桃園機場巡迴巴士
-                    </p>
-                    <br>
-                    <h3>開放資料 - Open data</h3>
-                    <p>
-                        提供API服務，詳細API Doc，請參考文件
-                        <a class="dotted" href="/api/doc">API Doc</a>
-                    </p>
-                    <br>
-                    <h3>開放原始碼 - Open source</h3>
-                    <p>
-                        本網站使用
-                        <code>Rails 4.2.0</code>
-                        開發，並Open source於
-                        <a class="dotted" href="https://github.com/jiunjiun/apb-shuttle">GitHub</a>
-                        ，本網站有任何問題，歡迎提出Issues或是聯絡我。
-                    </p>
-                    <br>
-                    <h3>開發與聯絡方式</h3>
-                    <p>
-                        133T
-                        <a class="dotted" target="_blank" href="http://fb.com/doublejiun">陳均均(jiunjiun)</a>
-                        ,
-                        <a class="dotted" href="mailto:quietmes@gmail.com">quietmes@gmail.com</a>
-                    </p>
-                    <br>
-                    <p>
-                        <iframe frameborder="0" height="20px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=jiunjiun&amp;repo=apb-shuttle&amp;type=star&amp;count=true" width="85px"></iframe>
-                        <iframe frameborder="0" height="20px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=jiunjiun&amp;repo=apb-shuttle&amp;type=fork&amp;count=true" width="85px"></iframe>
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<footer class="bs-docs-footer" role="contentinfo">
+      footer {background-color: #607D8B; color: #fff; padding: 30px 0; margin-top: 30px;}
+      footer a.dotted {color: #E0E0E0; border-bottom: dotted 1px #CFD8DC;}
+      .bs-docs-footer-links {padding-left: 0;}
+      .bs-docs-footer-links li:first-child {padding-left: 0;}
+      .bs-docs-footer-links li {color: #fff; display: inline; padding: 0 2px;}
+    </style>
+  </head>
+  <body>
     <div class="container">
-        <p>
-            Code licensed under
-            <a class="dotted" href="https://github.com/jiunjiun/apb-shuttle/blob/master/LICENSE" target="_blank">GPL</a>,
-            documentation under
-            <a class="dotted" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-        </p>
-        <ul class="bs-docs-footer-links text-muted">
-            <li>2015</li>
-            <li>·</li>
-            <li><a target="_blank" class="dotted" href="https://github.com/jiunjiun/apb-shuttle">GitHub</a></li>
-            <li>·</li>
-            <li><a target="_blank" class="dotted" href="https://github.com/jiunjiun">jiunjiun</a></li>
-            <li>·</li>
-            <li>v1.3.3</li>
-        </ul>
+      <h1>關於網站</h1>
+      <p>本網站主要提供航警局與航廈來往車班資訊，並包含亞通客運，以方便同仁搭車。</p>
+      <p>資料來源：安檢隊-駕駛班所提供、亞通客運-桃園機場巡迴巴士</p>
+      <br>
+      <h3>開放資料 - Open data</h3>
+      <p>
+        提供API服務，詳細API Doc，請參考文件
+        <a class="dotted" href="https://apb-shuttle.info/api/doc">API Doc</a>
+      </p>
+      <br>
+      <h3>開放原始碼 - Open source</h3>
+      <p>
+        本網站使用
+        <code>Rails 4.2.0</code>
+        開發，並Open source於
+        <a class="dotted" href="https://github.com/jiunjiun/apb-shuttle">GitHub</a>
+        ，本網站有任何問題，歡迎提出Issues或是聯絡我。
+      </p>
+      <br>
+      <h3>開發與聯絡方式</h3>
+      <p>
+        133T
+        <a class="dotted" href="http://fb.com/doublejiun" target="_blank">陳均均(jiunjiun)</a>
+        ,
+        <a class="dotted" href="mailto:quietmes@gmail.com">quietmes@gmail.com</a>
+      </p>
+      <br>
+      <p>
+        <iframe frameborder="0" height="20px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=jiunjiun&amp;repo=apb-shuttle&amp;type=star&amp;count=true" width="85px"></iframe>
+        <iframe frameborder="0" height="20px" scrolling="0" src="https://ghbtns.com/github-btn.html?user=jiunjiun&amp;repo=apb-shuttle&amp;type=fork&amp;count=true" width="85px"></iframe>
+      </p>
     </div>
-</footer>
-
-<script src="/assets/application-addbec3f8353173396e2e508d32da184.js" data-turbolinks-track="true"></script>
-
-
-
-<div id="naptha_container0932014_0707" style="position: absolute; top: 0px; left: 0px;"></div></body></html>
+    <footer>
+      <div class="container">
+        <p>
+          Code licensed under <a class="dotted" href="https://github.com/jiunjiun/APB-Shuttle/blob/master/LICENSE" target="_blank">MIT</a>,
+          documentation under <a class="dotted" href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+        <ul class="bs-docs-footer-links">
+          <li>2015</li>
+          <li>·</li>
+          <li>
+            <a class="dotted mixpanel-tracked" href="https://github.com/jiunjiun/APB-Shuttle" target="_blank">GitHub</a>
+          </li>
+          <li>·</li>
+          <li>
+            <a class="dotted mixpanel-tracked" href="https://github.com/jiunjiun" target="_blank">jiunjiun</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>

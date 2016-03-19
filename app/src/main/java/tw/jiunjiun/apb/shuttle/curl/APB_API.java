@@ -16,7 +16,7 @@ import java.io.IOException;
  * Created by jiun on 2015/2/23.
  */
 public class APB_API {
-    private static final String SERVER = "http://apb-shuttle.info/api/";
+    private static final String SERVER = "http://api.apb-shuttle.info/";
 
     private static final String TAG = "apb_api";
     private static final boolean D = false;
